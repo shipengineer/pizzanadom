@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
-    baseURL: '/diploma-paper/',
+    baseURL: '',
   },
   modules: ['@nuxt/image', '@nuxt/ui'],
 });
