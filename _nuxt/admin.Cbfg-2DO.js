@@ -1,0 +1,1 @@
+import{_ as t}from"./nuxt-link.ChULv5IY.js";import{f as o,o as a,c as n,b as s,w as _,d as c,F as r,a as m}from"./entry.BmraQpaO.js";const d=m("h1",null,"Ist admin",-1),x=o({__name:"admin",setup(p){return(i,l)=>{const e=t;return a(),n(r,null,[d,s(e,{to:"/"},{default:_(()=>[c("Home")]),_:1})],64)}}});export{x as default};

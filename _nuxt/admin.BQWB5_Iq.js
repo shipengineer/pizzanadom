@@ -1,0 +1,1 @@
+import{_ as a,c as t,x as n,F as o,a as s,o as r}from"./entry.BmraQpaO.js";const c={},l=s("h1",null,"AdminLayout",-1);function _(e,d){return r(),t(o,null,[l,n(e.$slots,"default")],64)}const m=a(c,[["render",_]]);export{m as default};
