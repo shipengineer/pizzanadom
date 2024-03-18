@@ -2,7 +2,7 @@
     <div class="toppings">
         <div v-for="top in toppings" class ='topping'>
             <input :name="top.name + props.pizzaId" type="checkbox">
-            <label :for="top.name + props.pizzaId" >{{ top.name }}&nbsp;<p>{{ top.price*diametrMultiplier }}₽</p> </label>
+            <label :for="top.name + props.pizzaId" >{{ top.name }}&nbsp;<span>{{ top.price*diametrMultiplier }}₽</span> </label>
         </div>
     </div>
 </template>

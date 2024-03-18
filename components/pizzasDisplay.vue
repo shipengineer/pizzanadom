@@ -1,13 +1,13 @@
 <template>
-    <div class="pizzaDisplay">
-        <div class="pizzaDisplay__buttons">
+    <div   class="pizzaDisplay" :class="{modal:showDetails}">
+        <div  class="pizzaDisplay__buttons">
             <button @click = "category = '' ">Все</button>
             <button @click = "category = 'hot' ">Острые</button>
             <button>Вегетарианские</button>
             <button>Отлично для детей</button>
             <p>{{ category }}</p>
         </div>
-        <div class="pizzaDisplay__table">
+        <div class="pizzaDisplay__table" >
             <Pizza v-for="pizza in pizzasToDisplay" v-on:choose="changePizza"  :pizza="pizza"/>
         </div>
 
@@ -19,13 +19,16 @@
 <script setup lang="ts" >
 const pizzaChoise = ref(0)
 const showDetails = ref(false)
+
 const changePizza=function(payload:any){
     showDetails.value=true
+    
 return pizzaChoise.value=payload
 }
 const closeTab = function(){
     showDetails.value=false
 }
+
 const category = ref('')
 const {data, refresh, pending} = await useFetch('/api/pizza')
 
@@ -44,7 +47,7 @@ const pizzaToChoise=computed(()=>{
 </script>
 <style lang="scss">
 .pizzaDisplay{
-
+    overflow-y: auto;
     &__table{
         margin-inline: auto;
         justify-content: center;
@@ -53,4 +56,9 @@ const pizzaToChoise=computed(()=>{
         gap: 20px;
     }
 }
+.modal{
+    height: 80vh;
+    overflow-y: hidden;
+}
+
 </style>

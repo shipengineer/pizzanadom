@@ -1,7 +1,7 @@
 
 import { NuxtLayout } from '#build/components';
 <template>
-    <section>
+    <section  >
         
         
     </section>
@@ -10,4 +10,5 @@ import { NuxtLayout } from '#build/components';
 definePageMeta({
     layout:'user'
 })
+
 </script>
