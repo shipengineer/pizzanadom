@@ -1,5 +1,5 @@
 <template>
-    <div  class="wraper"  :id="props.pizza?.id">
+    <div @click="emit('close-tab')" class="wraper"  :id="props.pizza?.id">
         <div class="wraper__flex">
             <div class="pizzaDetails">
                 <button @click="emit('close-tab')" class="closeButton">ЗАКРЫТЬ</button>
