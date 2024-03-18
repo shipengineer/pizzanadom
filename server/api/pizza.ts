@@ -18,7 +18,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [420, 635, 785],
       tag: ['', 'hot'],
-      img: 'extra-hot',
+      img: 'pepperoni',
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [435, 615, 775],
       tag: [''],
-      img: 'russian',
+      img: 'chees-ham',
     },
     {
       id: 4,
@@ -47,7 +47,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [485, 735, 935],
       tag: ['', 'hot'],
-      img: 'russian',
+      img: 'meaty',
     },
     {
       id: 5,
@@ -67,7 +67,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [475, 715, 895],
       tag: [''],
-      img: 'villager',
+      img: 'chicken-mushrooms',
     },
     {
       id: 7,
@@ -77,7 +77,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [465, 695, 875],
       tag: [''],
-      img: 'villager',
+      img: 'bacon-mushrooms',
     },
     {
       id: 8,
@@ -97,7 +97,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [485, 715, 885],
       tag: ['', 'hot'],
-      img: 'russian',
+      img: 'chilly-mexico',
     },
     {
       id: 10,
@@ -107,7 +107,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [485, 695, 885],
       tag: ['', 'hot'],
-      img: 'russian',
+      img: 'spain',
     },
     {
       id: 11,
@@ -117,7 +117,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [465, 695, 855],
       tag: [''],
-      img: 'russian',
+      img: 'carbonara',
     },
     {
       id: 12,
@@ -127,7 +127,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [485, 735, 935],
       tag: ['', 'hot'],
-      img: 'russian',
+      img: 'bbq',
     },
     {
       id: 13,
@@ -137,7 +137,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [475, 715, 915],
       tag: [''],
-      img: 'russian',
+      img: 'four-chees',
     },
     {
       id: 14,
@@ -147,7 +147,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [395, 625, 755],
       tag: [''],
-      img: 'russian',
+      img: 'chicken-souce',
     },
     {
       id: 15,
@@ -157,7 +157,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [435, 625, 765],
       tag: [''],
-      img: 'russian',
+      img: 'hawaian',
     },
     {
       id: 16,
@@ -167,7 +167,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [430, 625, 785],
       tag: [''],
-      img: 'russian',
+      img: 'margarita',
     },
     {
       id: 17,
@@ -177,7 +177,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [495, 735, 945],
       tag: ['', 'hot'],
-      img: 'russian',
+      img: 'legend',
     },
     {
       id: 18,
@@ -187,7 +187,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [485, 735, 935],
       tag: [''],
-      img: 'russian',
+      img: 'chiefs',
     },
     {
       id: 19,
@@ -197,7 +197,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [475, 725, 935],
       tag: ['', 'hot'],
-      img: 'russian',
+      img: 'chilly-shrimps',
     },
     {
       id: 20,
@@ -207,7 +207,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [485, 735, 935],
       tag: ['', 'hot'],
-      img: 'russian',
+      img: 'tom-yam-shrimps',
     },
     {
       id: 21,
@@ -217,7 +217,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [465, 715, 835],
       tag: [''],
-      img: 'russian',
+      img: 'shrimps-mad',
     },
     {
       id: 22,
@@ -227,7 +227,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [515, 745, 935],
       tag: [''],
-      img: 'russian',
+      img: 'ceasar-shrimps',
     },
     {
       id: 23,
@@ -237,7 +237,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [475, 715, 895],
       tag: [''],
-      img: 'russian',
+      img: 'ceasar',
     },
     {
       id: 24,
@@ -247,7 +247,7 @@ export default defineEventHandler((event) => {
       size: [25, 30, 35],
       price: [475, 715, 895],
       tag: [''],
-      img: 'russian',
+      img: 'chees-honey-nuts',
     },
   ];
 });

@@ -34,6 +34,8 @@ const addToCart = function(){
     console.log(toCart)
 }
 
+
+
 const multiplier = computed(()=>{
     switch (size.value) {
         case 25:
@@ -53,8 +55,9 @@ const summary = ref(props.pizza?.price[0])
 </script>
 <style lang="scss">
 .wraper{
+    z-index: 1000;
     position: absolute;
-    top:0px;
+    
     width: 100%;
     height: 100%;
     background-color: rgba($color: #D3D3D3, $alpha:0.5);
@@ -64,6 +67,8 @@ const summary = ref(props.pizza?.price[0])
     &__flex{
         background-color: #D3D3D3;
         position: relative;
+        display: flex;
+        align-self: center;
         .pizzaDetails{
             max-width: 610px;
             position: sticky;
