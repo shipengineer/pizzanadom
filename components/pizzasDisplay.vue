@@ -28,9 +28,11 @@ const changePizza=function(payload:any){
 return pizzaChoise.value=payload
 }
 
-const closeTab = function(){
-    emit('scroll-handle',false)
-    showDetails.value=false
+const closeTab = function(e:HTMLElement){
+    if(e.classList.contains('wraper')){
+        emit('scroll-handle',false)
+        showDetails.value=false
+    }
 }
 
 const category = ref('')

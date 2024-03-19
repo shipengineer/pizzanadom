@@ -1,10 +1,10 @@
 <template>
     <div class="user" ref="el"  >
-        <div class="wrapper">
+        
         <Header/>
         <PizzasDisplay v-on:scroll-handle="stopScroll" />
         <slot/>
-        </div>
+        
     </div>
 </template>
 <script setup lang="ts">
@@ -27,17 +27,16 @@ body{
     position: relative;
 }
 .user{
+    scrollbar-width: none;
+
+    background-image: url('@/backgrounds/rock.jpg');
+    background-size: contain;
     width: 100%;
     height: 100vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
-.wrapper{
-    
-    margin-inline: auto;
-    max-width: 1200px;
-    scrollbar-width: none;
-}
+
 .stopScroll{
     height: 100vh;
     overflow-y: hidden;

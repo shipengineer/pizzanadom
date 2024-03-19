@@ -1,8 +1,8 @@
 <template>
-    <div @click="emit('close-tab')" class="wraper"  :id="props.pizza?.id">
+    <div @click="emit('close-tab',$event.target)" class="wraper"  :id="props.pizza?.id">
         <div class="wraper__flex">
             <div class="pizzaDetails">
-                <button @click="emit('close-tab')" class="closeButton">ЗАКРЫТЬ</button>
+                <button  class="closeButton">ЗАКРЫТЬ</button>
                 <NuxtImg format="webp" :src="'/pizza-img/'+props.pizza?.img+'.jpg'" class="pizzaDetails__img"/>
                 <p class="pizzaDetails__name">{{ props.pizza?.name }}</p>
                 <div class="diametr">
@@ -55,7 +55,7 @@ const summary = ref(props.pizza?.price[0])
 </script>
 <style lang="scss">
 .wraper{
-    z-index: 1000;
+    
     position: absolute;
     
     width: 100%;
@@ -65,6 +65,7 @@ const summary = ref(props.pizza?.price[0])
     display: flex;
     justify-content: center;
     &__flex{
+        z-index: 2;
         background-color: #D3D3D3;
         position: relative;
         display: flex;
