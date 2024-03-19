@@ -4,5 +4,5 @@ export default defineNuxtConfig({
   app: {
     baseURL: '',
   },
-  modules: ['@nuxt/image', '@nuxt/ui'],
+  modules: ['@nuxt/image', '@nuxt/ui', '@pinia/nuxt'],
 });

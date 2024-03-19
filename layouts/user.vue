@@ -1,8 +1,9 @@
 <template>
-    <div class="user" ref="el"  >
+    <div class="user" ref="el"   >
         
         <Header/>
-        <PizzasDisplay v-on:scroll-handle="stopScroll" />
+        <CategoryFilter />
+        <PizzasDisplay v-on:scroll-handle="stopScroll"   />
         <slot/>
         
     </div>
@@ -14,8 +15,8 @@ const el = ref<HTMLElement | null>(null);
 const noScroll = useScrollLock(el);
 const stopScroll = (payload:boolean)=>{
     noScroll.value=payload
-   
 }
+
 
 
 </script>

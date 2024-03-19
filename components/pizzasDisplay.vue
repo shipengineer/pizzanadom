@@ -1,14 +1,8 @@
 <template>
-    <div class="pizzaDisplay" :class="{modal:showDetails}" >
-        <div  class="pizzaDisplay__buttons">
-            <button @click = "category = '' ">Все</button>
-            <button @click = "category = 'hot' ">Острые</button>
-            <button>Вегетарианские</button>
-            <button>Отлично для детей</button>
-            <p>{{ category }}</p>
-        </div>
-        <div class="pizzaDisplay__table" >
-            <Pizza v-for="pizza in pizzasToDisplay" v-on:choose="changePizza"  :pizza="pizza"/>
+    <div class="pizzaDisplay" :class="{modal:showDetails}"  >
+        <p>{{ category.category }}</p>
+        <div class="pizzaDisplay__table"  >
+            <Pizza v-for="pizza,index in pizzasToDisplay" v-on:choose="changePizza"  :pizza="pizza"  />
         </div>
 
     <Teleport  to="body">
@@ -17,8 +11,10 @@
     </div>
 </template>
 <script setup lang="ts" >
-const emit = defineEmits(['scroll-handle']);
+import { useCategoryStores } from '~/stores/category';
 
+const emit = defineEmits(['scroll-handle']);
+const category = useCategoryStores()
 const pizzaChoise = ref(0)
 const showDetails = ref(false)
 const changePizza=function(payload:any){
@@ -35,21 +31,30 @@ const closeTab = function(e:HTMLElement){
     }
 }
 
-const category = ref('')
+
 const {data, refresh, pending} = await useFetch('/api/pizza')
 
-const pizzasToDisplay =  computed(
-    ()=> {
-    if(Array.isArray(data.value)){
-        return data.value.filter((elem)=>elem.tag.includes(category.value)
-    )
-}
-} 
-)
+
 const pizzaToChoise=computed(()=>{
     if(Array.isArray(data.value)){
     return data.value[pizzaChoise.value]}
 })
+const pizzasToDisplay =  computed(
+    ()=> {
+    if(Array.isArray(data.value)){
+        return data.value.filter((elem)=>elem.tag.includes(category.category)
+    )
+}
+} 
+)
+onActivated(()=>{
+    console.log(category.category)
+})
+
+
+
+
+
 </script>
 <style lang="scss">
 .pizzaDisplay{
