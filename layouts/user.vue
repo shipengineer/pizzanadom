@@ -29,7 +29,7 @@ body{
 .user{
     scrollbar-width: none;
 
-    background-image: url('@/backgrounds/rock.jpg');
+    background-image: url('.public/backgrounds/rock.jpg');
     background-size: contain;
     width: 100%;
     height: 100vh;
