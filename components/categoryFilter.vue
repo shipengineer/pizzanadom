@@ -1,11 +1,10 @@
 <template>
     <div  class="filterCategory" @change="()=>{
-        console.log(selectedCategory)
         category.setCategory(selectedCategory)}" >
     
-            <div v-for='option in options'>
-                <input  type="radio" :id="option.value" :value="option.value" v-model="selectedCategory" name="category"  />
-                <label :for="option.value" > {{ option.name }} </label>
+            <div v-for='option in options' class="filterCategory__option">
+                
+                <label  :for="option.value" :class="{selected:option.value==selectedCategory}" > {{ option.name }} <input  type="radio" :id="option.value" :value="option.value" v-model="selectedCategory"   name="category"  v-bind:key="option.value"/></label>
             </div>
                 
         </div>
@@ -38,6 +37,31 @@ const category = useCategoryStores()
 </script>
 <style>
 .filterCategory{
-    background-color: lightgrey;
+    margin-top: 10px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    .selected{
+        background-color: #a8a8a8 ;
+        border: 3px black solid;
+    }
+    label{
+        &:hover{
+            cursor: pointer;
+        }
+        background-color: #cecece ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:10px 20px;
+        height: 50px;
+        border-radius: 10px;
+        
+    }
+    input{
+      display: none;
+    }
 }
+
 </style>
