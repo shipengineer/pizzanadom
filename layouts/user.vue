@@ -48,12 +48,12 @@ body{
     display: block;
         position: absolute ;
         margin-left: auto;
-        top: 90svh;
+        top: 10svh;
         right: 0px;
-        transition: 2s;
+        transition: 0.25s;
         &:hover{
-            top:calc( 90svh - 70px);
-            transition: 2s;
+            transform: scale(1.1);
+            transition: 0.25s;
             
         }
         .wraper{

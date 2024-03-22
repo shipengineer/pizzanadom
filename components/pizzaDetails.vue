@@ -7,53 +7,76 @@
                 <p class="pizzaDetails__name">{{ props.pizza?.name }}</p>
                 <div class="diametr">
                     <div v-for="dOption in props.pizza?.size" class="diametr__option">
-                        <input type="radio"  :name="'size'+props.pizza?.id" :id ="dOption" :value="dOption" v-model="size" class="diametr__input"/>
-                        <label :for="dOption" class="diametr__label">
+                        <input style="display: none;" type="radio"  :name="'size'+props.pizza?.id" :id ="dOption" :value="dOption" v-model="size" class="diametr__input"/>
+                        <label :class="{checked:size==dOption}" :for="dOption" class="diametr__label">
                             {{ dOption }}
                         </label>
                     </div>
                 </div>
-                <div  class="toppings">
-                    <Toppings :pizzaId="props.pizza?.id" :diametrMultiplier="multiplier" />
-                </div>
+                
+                    <Toppings :pizzaId="props.pizza?.id" :diametrMultiplier="multiplier" v-on:update-toppings="updateToppings" />
+                
                 <p class="pizzaDetails__description">{{ props.pizza?.description }}</p>
                 
 
-                <button @click ='addToCart' class="pizzaDetails__submit">В корзину {{ summary }}₽</button>
+                <button @click ='addToCart' class="pizzaDetails__submit">В корзину {{ toppingsPrice*multiplier+diametrPrice }}₽</button>
             </div>
+            
         </div>
     </div>
 </template>
 <script setup lang="ts">
+const props= defineProps({
+    pizza:Object})
+
 const emit = defineEmits(['close-tab'])
-const addToCart = function(){
-    const toCart = {
-        id:props.pizza?.id,
-        size:size.value,
-    }
-    console.log(toCart)
+const cart = useCartStore();
+const size=ref(25)
+const selectedTopings = ref([])
+const toppingsPrice=ref(0)
+const diametrPrice = ref(props.pizza?.price[0])
+
+const updateToppings=function(payload){
+    toppingsPrice.value = payload.reduce((a,b)=>a+ Number(b.split('+')[0]),0)
+    selectedTopings.value = payload.reduce((a,b)=>[...a,b.split('+')[1]],[])
+    
 }
 
 
-
+const addToCart = function(){
+    
+}
 const multiplier = computed(()=>{
     switch (size.value) {
         case 25:
+        diametrPrice.value =props.pizza?.price[0]
             return 1
         case 30:
+        diametrPrice.value =props.pizza?.price[1]
+
             return 2
         case 35:
+        diametrPrice.value =props.pizza?.price[2]
+
             return 3
         default:
            return 1
     }
 })
-const size=ref(25)
-const props= defineProps({
-    pizza:Object})
-const summary = ref(props.pizza?.price[0])
+
 </script>
 <style lang="scss">
+.checked{
+   border-radius: 10px;
+    transition:0.2s
+}
+.diametr__label{
+    border: 5px gray solid;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
 .wraper{
     
     position: absolute;
@@ -65,6 +88,7 @@ const summary = ref(props.pizza?.price[0])
     display: flex;
     justify-content: center;
     &__flex{
+        width: 700px;
         z-index: 2;
         background-color: #D3D3D3;
         position: relative;
@@ -78,7 +102,7 @@ const summary = ref(props.pizza?.price[0])
             top:25px;
             margin-inline: auto;
             display:grid;
-            grid-template: 25px 350px 25px /350px 200px ;
+            grid-template: 40px 350px 25px /350px 300px ;
             
             .closeButton{
                 position: absolute;
@@ -86,16 +110,19 @@ const summary = ref(props.pizza?.price[0])
                 right: -75px;
             }
             .diametr{
+                align-self: flex-start;
                 grid-column: 2;
                 grid-row: 1;
                 display: flex;
+                gap: 20px;
+                justify-content: center;
+                ;
+                
             }
             .toppings{
                 grid-column: 2;
                 grid-row: 2 /span 1;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
+               
             }
             &__name{
                 grid-row: 3;
@@ -104,6 +131,7 @@ const summary = ref(props.pizza?.price[0])
             &__img{
                 grid-row: 2;
                 grid-column: 1;
+                align-self: flex-start;
                 width: 350px;
                 height: 350px;
             }
