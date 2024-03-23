@@ -23,11 +23,9 @@ export const useCartStore = defineStore('cart', () => {
   const toppings = useFetch('/api/toppings');
   const multiplier = useFetch('/api/multiplier');
   const showCart = ref(false);
+  const cookie = useCookie();
   const toggleCart = function (e: MouseEvent) {
     if (e.target instanceof Element) {
-      // wraper__counter
-      // svg
-      //cart
       if (
         e.target.classList.contains('svg') ||
         e.target.classList.contains('cart') ||
@@ -46,7 +44,6 @@ export const useCartStore = defineStore('cart', () => {
       const pizzaToPush = pizzas.data.value?.find(
         (elem) => elem.id == pizza.id
       );
-
       result.push({
         pizza: pizzaToPush,
         toppings: pizza.toppings,
@@ -57,6 +54,7 @@ export const useCartStore = defineStore('cart', () => {
         total: pizza.total,
       });
     });
+
     return result;
   });
   function addToCart(payload: pizzaInCart) {

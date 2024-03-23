@@ -1,28 +1,17 @@
 <template>
     <div class="toppings">
-        <div v-for="top in toppings" class ='topping' @change="emit('update-toppings',selectedTopings)">
+        <div v-for="top in data" class ='topping' @change="emit('update-toppings',selectedTopings)">
             <input :name="top.name + props.pizzaId" :id="top.name + props.pizzaId" type="checkbox" :value="top.price + '+' + top.name" v-model="selectedTopings">
-            <label   :for="top.name + props.pizzaId" ><div :class="{checked:selectedTopings.includes(top.price + '+' + top.name)}" class="toppings__name" ><NuxtImg class="topping__img" src="/toppings/jalapeno.jfif"/><p>{{ top.name }}</p><p style="font-weight: 600;">{{ top.price*diametrMultiplier }}₽</p></div> </label>
+            <label   :for="top.name + props.pizzaId" ><div :class="{checked:selectedTopings.includes(top.price + '+' + top.name)}" class="toppings__name" ><NuxtImg class="topping__img" :src="/toppings/+ top.img"/><p>{{ top.name }}</p><p style="font-weight: 600;">{{ top.price*diametrMultiplier }}₽</p></div> </label>
         </div>
     </div>
 </template>
 <script setup lang="ts">
 const emit=defineEmits(['update-toppings'])
 const selectedTopings=ref([])
+const {data} = await useFetch('/api/toppings')
 
-const toppings = [
-    { name: 'моцарелла', price: 55 },
-    { name: 'пепперони', price: 55 },
-    { name: 'черри', price: 55 },
-    { name: 'бекон', price: 55 },
-    { name: 'ветчина', price: 45 },
-    { name: 'шампиньоны', price: 45 },
-    { name: 'халапеньо', price: 55 },
-    { name: 'соленья', price: 55 },
-    { name: 'дор блю', price: 65 },
-    { name: 'креветки', price: 95 },
-    { name: 'ананасы', price: 55 },
-  ]
+
   const props = defineProps({
     pizzaId:{
         default:0,
@@ -56,7 +45,7 @@ const toppings = [
         
         &__img{
             width: 100px;
-            object-fit: cover;
+            height: 100px;
         }
        
     }
@@ -65,7 +54,7 @@ const toppings = [
     }
     &__name{
         width: 100px;
-        height: 170px;
+        height: 150px;
         background-color: white;
         border: 2px #d3d3d3 solid;
         display: flex;
