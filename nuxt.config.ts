@@ -4,5 +4,8 @@ export default defineNuxtConfig({
   app: {
     baseURL: '',
   },
+  image: {
+    format: ['webp'],
+  },
   modules: ['@nuxt/image', '@nuxt/ui', '@pinia/nuxt'],
 });
