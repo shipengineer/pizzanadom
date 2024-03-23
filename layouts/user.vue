@@ -3,7 +3,7 @@
         
         <Header/>
         <Teleport to="body">
-        <button @click="toggleCart" class="bagClass" style="z-index: 1000;"><div class="wraper"><div class="wraper__counter">{{ 5 }}</div><NuxtImg src="/bag.svg" class="svg"/></div></button>
+        <button @click="cart.toggleCart" class="bagClass" style="z-index: 1000;"><div class="wraper"><div class="wraper__counter">{{ cartToOrder.length }}</div><NuxtImg src="/bag.svg" class="svg"/></div></button>
         </Teleport>
         <CategoryFilter />
         <PizzasDisplay v-on:scroll-handle="stopScroll"   />
@@ -15,15 +15,14 @@
 <script setup lang="ts">
 import { ref } from '@vue/runtime-core';
 import { useScrollLock } from '@vueuse/core'
-const {toggleCart}=useCartStore()
+const cart = useCartStore()
+const {cartToOrder}=storeToRefs(cart)
 
 const el = ref<HTMLElement | null>(null);
 const noScroll = useScrollLock(el);
 const stopScroll = (payload:boolean)=>{
     noScroll.value=payload
 }
-
-
 
 </script>
 <style lang="scss">
