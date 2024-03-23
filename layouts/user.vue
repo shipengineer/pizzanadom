@@ -7,7 +7,7 @@
         </Teleport>
         <CategoryFilter />
         <PizzasDisplay v-on:scroll-handle="stopScroll"   />
-        <Cart/>
+        <LazyCart/>
         <slot/>
         
     </div>

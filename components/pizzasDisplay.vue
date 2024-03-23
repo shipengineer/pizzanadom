@@ -25,7 +25,8 @@ return pizzaChoise.value=payload
 }
 
 const closeTab = function(e:HTMLElement){
-    if(e.classList.contains('wraper')||e.tagName=='polygon'||e.tagName=='svg'){
+    console.log(e)
+    if(e.classList.contains('wraper')||e.tagName=='polygon'||e.tagName=='svg'||e.classList.contains('pizzaDetails__submit')||e.classList.contains('submit')){
 
         emit('scroll-handle',false)
         showDetails.value=false

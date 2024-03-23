@@ -18,7 +18,7 @@
                 
                     <Toppings :pizzaId="props.pizza?.id" :diametrMultiplier="multiplier" v-on:update-toppings="updateToppings" />
                 
-                <button  class="pizzaDetails__submit"><span v-if="inCart" @click ='removeFromCart'>Убрать из корзины</span><span v-else @click="addToCart">В корзину {{ toppingsPrice*multiplier+diametrPrice }}₽</span></button>
+                <button  class="pizzaDetails__submit" @click="emit('close-tab',$event.target)"><span v-if="inCart" class="submit" @click ='removeFromCart'>Убрать из корзины</span><span v-else class="submit" @click="addToCart">В корзину {{ toppingsPrice*multiplier+diametrPrice }}₽</span></button>
             </div>
             
             
@@ -43,7 +43,8 @@ const updateToppings=function(payload: any[]){
 }
 
 
-const addToCart = function(){
+const addToCart = function(e:Event){
+    
     inCart.value=true
     cart.addToCart({id:props.pizza?.id,diametr:size.value,toppings:selectedTopings.value,total:toppingsPrice.value*multiplier.value+diametrPrice.value})
 }
