@@ -2,7 +2,7 @@
     <div class="toppings">
         <div v-for="top in toppings" class ='topping' @change="emit('update-toppings',selectedTopings)">
             <input :name="top.name + props.pizzaId" :id="top.name + props.pizzaId" type="checkbox" :value="top.price + '+' + top.name" v-model="selectedTopings">
-            <label   :for="top.name + props.pizzaId" ><div :class="{checked:selectedTopings.includes(top.price + '+' + top.name)}" class="toppings__name" ><NuxtImg class="topping__img" src="/toppings/jalapeno.jfif"/><p>{{ top.name }}</p><p>{{ top.price*diametrMultiplier }}₽</p></div> </label>
+            <label   :for="top.name + props.pizzaId" ><div :class="{checked:selectedTopings.includes(top.price + '+' + top.name)}" class="toppings__name" ><NuxtImg class="topping__img" src="/toppings/jalapeno.jfif"/><p>{{ top.name }}</p><p style="font-weight: 600;">{{ top.price*diametrMultiplier }}₽</p></div> </label>
         </div>
     </div>
 </template>
@@ -18,7 +18,7 @@ const toppings = [
     { name: 'ветчина', price: 45 },
     { name: 'шампиньоны', price: 45 },
     { name: 'халапеньо', price: 55 },
-    { name: 'соленые огурчики', price: 55 },
+    { name: 'соленья', price: 55 },
     { name: 'дор блю', price: 65 },
     { name: 'креветки', price: 95 },
     { name: 'ананасы', price: 55 },
@@ -38,9 +38,22 @@ const toppings = [
     border: 10px orange solid !important;
 }
 .toppings{
+    margin: -2px;
+    grid-column: 2;
+        grid-row: 2;
+        
+    align-self:flex-start ;
+    max-height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: scroll;
+    position: relative;
+    scrollbar-width: none;
+
     .topping{
-        width: 150px;
-        height: 170px;
+        
         &__img{
             width: 100px;
             object-fit: cover;
@@ -50,25 +63,21 @@ const toppings = [
     input{
         display: none;
     }
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow: scroll;
-    position: relative;
-    scrollbar-width: none;
     &__name{
-        p{
-        text-align: center;
-         text-wrap: wrap;
-         line-height: 20px;
-            }
+        width: 100px;
+        height: 170px;
         background-color: white;
         border: 2px #d3d3d3 solid;
-        margin: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
         transition: 0.2s;
+        p{
+            font-size: 14px;
+        text-align: center;
+         text-wrap: wrap;
+         line-height: 20px;
+            }
         
     }
 }</style>
