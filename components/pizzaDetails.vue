@@ -72,7 +72,10 @@ const multiplier = computed(()=>{
 
 </script>
 <style lang="scss">
-
+.submit{
+    display: block;
+    width: 100%;
+}
 .checked{
    border-radius: 10px;
     transition:0.2s
