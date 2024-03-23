@@ -2,7 +2,7 @@
     <div class="toppings">
         <div v-for="top in data" class ='topping' @change="emit('update-toppings',selectedTopings)">
             <input :name="top.name + props.pizzaId" :id="top.name + props.pizzaId" type="checkbox" :value="top.price + '+' + top.name" v-model="selectedTopings">
-            <label   :for="top.name + props.pizzaId" ><div :class="{checked:selectedTopings.includes(top.price + '+' + top.name)}" class="toppings__name" ><NuxtImg class="topping__img" :src="/toppings/+ top.img"/><p>{{ top.name }}</p><p style="font-weight: 600;">{{ top.price*diametrMultiplier }}₽</p></div> </label>
+            <label   :for="top.name + props.pizzaId" ><div :class="{checked:selectedTopings.includes(top.price + '+' + top.name)}" class="toppings__name" ><NuxtImg width="100" height="100" class="topping__img" :src="/toppings/+ top.img"/><p>{{ top.name }}</p><p style="font-weight: 600;">{{ top.price*diametrMultiplier }}₽</p></div> </label>
         </div>
     </div>
 </template>
@@ -41,14 +41,7 @@ const {data} = await useFetch('/api/toppings')
     position: relative;
     scrollbar-width: none;
 
-    .topping{
-        
-        &__img{
-            width: 100px;
-            height: 100px;
-        }
-       
-    }
+   
     input{
         display: none;
     }
