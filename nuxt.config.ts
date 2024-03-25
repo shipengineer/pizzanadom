@@ -7,5 +7,6 @@ export default defineNuxtConfig({
   image: {
     format: ['webp'],
   },
+
   modules: ['@nuxt/image', '@nuxt/ui', '@pinia/nuxt'],
 });

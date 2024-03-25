@@ -3,7 +3,7 @@
        
        <div class="pizzasContainer">
             <div v-if="cart.cartToOrder.length" class="item" v-for="item in cart.cartToOrder" >
-                <NuxtImg  format="webp" :src="'/pizza-img/'+item.pizza.img+'.jpg'" class="item__img"/>
+                <NuxtImg  format="webp" :src="'/pizza-img/'+item.pizza.img+'.webp'" class="item__img"/>
                 <p class="item__name"><p class="item__total">{{ item.total }}₽</p>{{ item.pizza.name }} <p class="item__describe">
                     {{ item.diametr }} см + <span v-for="top in item.toppings">{{ top }}&nbsp;</span>
                 </p>

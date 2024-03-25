@@ -1,6 +1,6 @@
 <template>
     <div @click ="emit('choose',props.pizza?.id)" class="pizza" :id="props.pizza?.id">
-        <NuxtImg format="webp" :src="'/pizza-img/'+props.pizza?.img+'.jpg'" class="pizza__img"/>
+        <NuxtImg format="webp" :src="'/pizza-img/'+props.pizza?.img+'.webp'" class="pizza__img"/>
         <p class="pizza__name">{{ props.pizza?.name }}</p>      
         <p>{{ props.pizza?.description }}</p>
         <span class="pizza__price">от {{ props.pizza?.price[0] }} ₽<button class="pizza__button">Выбрать</button></span>
