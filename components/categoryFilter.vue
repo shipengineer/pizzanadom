@@ -20,7 +20,7 @@ const { category, allCategories } = storeToRefs(categoryStore)
 const { setCategory } = categoryStore
 
 
-const selectedCategory = ref('all')
+const selectedCategory = ref('Все')
 
 
 
