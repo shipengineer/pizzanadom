@@ -90,9 +90,9 @@ body {
         background-color: black;
     }
     .user{
-background-color: black;
+    background-color: black;
     margin-inline:auto;
-        width: 320px;
+    width: 320px;
     }
     .filterCategory{
         flex-wrap: wrap;
@@ -144,9 +144,10 @@ background-color: black;
             grid-row: 6;
         }
     }
-    .cart{
-        margin-inline: auto;
-    }    
+     
+    .cart:deep{
+        left:-100%;
+    }
 }
 
 </style>

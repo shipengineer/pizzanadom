@@ -117,6 +117,21 @@ console.log(showCart)
     background-color: orange;
 }
 
+@media screen and (max-width : 720px) {
+    .item{
+        grid-template: 225px / 100px 220px;
+        *{
+            width: auto;
+        }
+    }
+    .cart{
+        left: -100vh;
+        .pizzasContainer{
+            width: 100%;
+        }
+    }
+    
+}
 .show {
     left: 0;
 }
