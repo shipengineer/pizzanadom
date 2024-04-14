@@ -3,7 +3,7 @@
         <Header />
         <Teleport to="body">
             <button @click="cart.toggleCart" class="bagClass" style="z-index: 1000;">
-                <div class="wraper">
+                <div class="counter">
                     <div class="wraper__counter">{{ cartToOrder.length }}</div>
                     <NuxtImg src="/bag.svg" class="svg" />
                 </div>
@@ -85,4 +85,67 @@ body {
         }
     }
 }
+@media screen and  (max-width : 720px) {
+    #__nuxt{
+        background-color: black;
+    }
+    .user{
+background-color: black;
+    margin-inline:auto;
+        width: 100vh
+    }
+    .filterCategory{
+        flex-wrap: wrap;
+    }
+    .pizzaDisplay__table{
+        width: 320px;
+      
+    }
+    .pizza{
+        width: 320px;
+        grid-template: 1fr  / 250px;
+        justify-content: center;
+    }
+    .wraper__flex{
+        width: 100vw;
+        justify-content: center;
+    }
+    
+    .pizzaDetails{
+        width: 320px;
+        *{
+            grid-column: 1;
+        }
+        .diametr{
+            grid-row: 1;
+        }
+        .pizzaDetails__img{
+            width: 150px;
+            height: auto;
+            grid-row: 2;
+        }
+        grid-template: 35px 150px 30px minmax(30px,100px) 170px / 320px;
+        &__name{
+            grid-row: 3;
+        }
+        &__description{
+            grid-row: 4;
+        }
+        .toppings{
+            grid-row: 5;
+            width: 250px;
+            overflow: scroll;
+            .topping{
+                width: 100px;
+            }
+        }
+        &__submit{
+            grid-row: 6;
+        }
+    }
+    .cart{
+        margin-inline: auto;
+    }    
+}
+
 </style>
