@@ -113,6 +113,7 @@ background-color: black;
     
     .pizzaDetails{
         width: 320px;
+        height: fit-content;
         *{
             grid-column: 1;
         }
@@ -124,7 +125,7 @@ background-color: black;
             height: auto;
             grid-row: 2;
         }
-        grid-template: 35px 150px 30px minmax(30px,100px) 170px / 320px;
+        grid-template: 35px 150px 30px minmax(30px,100px) 600px 30px / 320px;
         &__name{
             grid-row: 3;
         }
@@ -133,8 +134,8 @@ background-color: black;
         }
         .toppings{
             grid-row: 5;
-            width: 250px;
-            overflow: scroll;
+            width: 300px;
+            overflow:visible;
             .topping{
                 width: 100px;
             }
