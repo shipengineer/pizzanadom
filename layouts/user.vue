@@ -92,7 +92,7 @@ body {
     .user{
 background-color: black;
     margin-inline:auto;
-        width: 100vh
+        width: 320px;
     }
     .filterCategory{
         flex-wrap: wrap;
