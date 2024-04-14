@@ -4,7 +4,7 @@
         <Teleport to="body">
             <button @click="cart.toggleCart" class="bagClass" style="z-index: 1000;">
                 <div class="counter">
-                    <div class="wraper__counter">{{ cartToOrder.length }}</div>
+                    <div class="counter__number">{{ cartToOrder.length }}</div>
                     <NuxtImg src="/bag.svg" class="svg" />
                 </div>
             </button>
@@ -69,14 +69,16 @@ body {
 
     }
 
-    .wraper {
+    .counter {
         position: sticky;
         background-color: transparent;
+        width: 40px;
 
-        &__counter {
-            font-size: 30px;
+        &__number {
+            font-size: 14px;
             position: absolute;
-            top: 50px;
+            top: 15px;
+            right: 15px;
             color: white;
         }
 
