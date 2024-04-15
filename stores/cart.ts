@@ -10,14 +10,14 @@ export const useCartStore = defineStore('cart', () => {
   };
   type Pizza =
     | {
-        id: number;
-        name: string;
-        description: string;
-        size: number[];
-        price: number[];
-        tag: string[];
-        img: string;
-      }
+      id: number;
+      name: string;
+      description: string;
+      size: number[];
+      price: number[];
+      tag: string[];
+      img: string;
+    }
     | undefined;
   const pizzas = useFetch('/api/pizza');
   const toppings = useFetch('/api/toppings');
@@ -29,7 +29,7 @@ export const useCartStore = defineStore('cart', () => {
       if (
         e.target.classList.contains('svg') ||
         e.target.classList.contains('cart') ||
-        e.target.classList.contains('wraper__counter')
+        e.target.classList.contains('counter__number')
       )
         showCart.value = !showCart.value;
     }
