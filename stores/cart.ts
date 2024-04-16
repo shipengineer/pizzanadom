@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import type { HTMLAttributes } from 'vue';
 export const useCartStore = defineStore('cart', () => {
   type pizzaInCart = {
     id: number;
