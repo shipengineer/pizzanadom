@@ -7,6 +7,11 @@ export default defineNuxtConfig({
   image: {
     format: ['webp'],
   },
+  nitro: {
+    experimental: {
+      database: true
+    }
+  },
 
   modules: ['@nuxt/image', '@nuxt/ui', '@pinia/nuxt'],
 });

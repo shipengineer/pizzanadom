@@ -10,7 +10,7 @@ import { NuxtLayout } from '#build/components';
         </button>
     </Teleport>
     <CategoryFilter />
-    <PizzasDisplay v-on:scroll-handle="stopScroll" />
+    <PizzasDisplay :is-admin="false" v-on:scroll-handle="stopScroll" />
     <LazyCart />
 </template>
 <script setup lang="ts">
@@ -22,7 +22,8 @@ import { useScrollLock } from '@vueuse/core'
 const cart = useCartStore()
 const { cartToOrder } = storeToRefs(cart)
 
-const userLayout = ref<HTMLElement | null>(null);
+
+const userLayout = ref(null);
 const noScroll = useScrollLock(userLayout);
 const stopScroll = (payload: boolean) => {
     noScroll.value = payload

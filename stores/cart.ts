@@ -1,6 +1,5 @@
-import { corePlugins } from '#tailwind-config';
 import { defineStore } from 'pinia';
-
+import type { HTMLAttributes } from 'vue';
 export const useCartStore = defineStore('cart', () => {
   type pizzaInCart = {
     id: number;
@@ -8,31 +7,22 @@ export const useCartStore = defineStore('cart', () => {
     toppings: string[];
     total: number;
   };
-  type Pizza =
-    | {
-      id: number;
-      name: string;
-      description: string;
-      size: number[];
-      price: number[];
-      tag: string[];
-      img: string;
-    }
-    | undefined;
+
   const pizzas = useFetch('/api/pizza');
   const toppings = useFetch('/api/toppings');
   const multiplier = useFetch('/api/multiplier');
   const showCart = ref(false);
-  const cookie = useCookie();
-  const toggleCart = function (e: MouseEvent) {
-    if (e.target instanceof Element) {
-      if (
-        e.target.classList.contains('svg') ||
-        e.target.classList.contains('cart') ||
-        e.target.classList.contains('counter__number')
-      )
-        showCart.value = !showCart.value;
-    }
+
+  const toggleCart = function (e: Event) {
+    const target = e.target as HTMLInputElement;
+
+    if (
+      target.classList.contains('svg') ||
+      target.classList.contains('cart') ||
+      target.classList.contains('counter__number')
+    )
+      showCart.value = !showCart.value;
+
   };
   const cart: globalThis.Ref<pizzaInCart[]> = ref([]);
   const orderTotal = computed(() => {

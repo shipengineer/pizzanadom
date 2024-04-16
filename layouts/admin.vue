@@ -1,6 +1,6 @@
 <template>
     <div class="admin">
-        <slot></slot>
+        <slot />
     </div>
 </template>
 <style lang="scss">
